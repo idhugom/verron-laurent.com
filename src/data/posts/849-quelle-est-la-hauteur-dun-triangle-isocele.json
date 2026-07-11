@@ -1,0 +1,92 @@
+{
+  "slug": "849-quelle-est-la-hauteur-dun-triangle-isocele",
+  "wpSlug": "quelle-est-la-hauteur-dun-triangle-isocele",
+  "title": "Quelle est la hauteur d’un triangle isocèle ?",
+  "originalTitle": "Quelle est la hauteur d’un triangle isocèle ?",
+  "date": "2024-06-26T20:23:40",
+  "updated": "2024-06-26T20:23:42",
+  "excerpt": "La hauteur d’un triangle isocèle se calcule facilement grâce à son axe de symétrie. Formules, exemples et méthodes selon les données dont vous disposez.",
+  "metaDescription": "Apprenez à calculer la hauteur d’un triangle isocèle avec Pythagore, l’aire ou la trigonométrie, et évitez les erreurs de mesure courantes.",
+  "readingMinutes": 9,
+  "heroImage": "/images/posts/849-quelle-est-la-hauteur-dun-triangle-isocele.jpg",
+  "heroAlt": "Schéma géométrique d’un triangle isocèle avec sa base, ses deux côtés égaux et la hauteur perpendiculaire passant par le milieu de la base",
+  "topics": [
+    "mathématiques",
+    "géométrie",
+    "triangle",
+    "calculs"
+  ],
+  "toc": [
+    {
+      "id": "quelle-hauteur-designe-t-on-dans-un-triangle-isocele",
+      "label": "Quelle hauteur désigne-t-on dans un triangle isocèle ?"
+    },
+    {
+      "id": "la-formule-principale-avec-le-theoreme-de-pythagore",
+      "label": "La formule principale avec le théorème de Pythagore"
+    },
+    {
+      "id": "les-autres-formules-selon-les-informations-connues",
+      "label": "Les autres formules selon les informations connues"
+    },
+    {
+      "id": "quelle-methode-choisir",
+      "label": "Quelle méthode choisir ?"
+    },
+    {
+      "id": "cas-particulier-la-hauteur-d-un-triangle-equilateral",
+      "label": "Cas particulier : la hauteur d’un triangle équilatéral"
+    },
+    {
+      "id": "verifier-que-les-mesures-decrivent-bien-un-triangle-isocele",
+      "label": "Vérifier que les mesures décrivent bien un triangle isocèle"
+    },
+    {
+      "id": "les-erreurs-les-plus-frequentes-a-eviter",
+      "label": "Les erreurs les plus fréquentes à éviter"
+    },
+    {
+      "id": "la-methode-rapide-a-retenir",
+      "label": "La méthode rapide à retenir"
+    }
+  ],
+  "keyTakeaways": [
+    "La hauteur usuelle d’un triangle isocèle relie le sommet à la base à angle droit.",
+    "Elle coupe toujours la base en deux segments égaux.",
+    "Si les côtés égaux valent a et la base b, alors h = √(a² − (b/2)²).",
+    "La formule avec l’aire est h = 2A / b.",
+    "Le calcul n’est possible que si les longueurs forment réellement un triangle : b doit être inférieur à 2a.",
+    "Conservez la même unité pour toutes les mesures et donnez la hauteur dans cette unité."
+  ],
+  "bodyHtml": "<p>La hauteur d’un triangle isocèle n’est pas une longueur fixe : elle dépend des dimensions du triangle. En revanche, ce type de triangle possède une propriété très pratique qui rend son calcul particulièrement simple. La hauteur issue du sommet principal coupe la base à angle droit <strong>et la partage exactement en deux parties égales</strong>.</p><p>Cette symétrie permet de transformer le triangle isocèle en deux triangles rectangles identiques. Il suffit alors, dans la plupart des cas, d’appliquer le théorème de Pythagore. Voici comment identifier la bonne hauteur, choisir la formule adaptée et vérifier votre résultat sans vous tromper.</p><h2 id=\"quelle-hauteur-designe-t-on-dans-un-triangle-isocele\">Quelle hauteur désigne-t-on dans un triangle isocèle ?</h2><p>Un triangle isocèle possède deux côtés de même longueur. Le point où ces deux côtés se rejoignent s’appelle le <strong>sommet principal</strong>, tandis que le troisième côté est la <strong>base</strong>.</p><p>Dans le langage courant et dans la plupart des exercices, « la hauteur d’un triangle isocèle » désigne le segment tracé depuis le sommet principal jusqu’à la base, de manière perpendiculaire. On note souvent cette hauteur <strong>h</strong>.</p><p>Plus précisément, tout triangle possède trois hauteurs : une par sommet. Mais le triangle isocèle a une hauteur remarquable, celle qui est relative à sa base. Elle est aussi :</p><ul><li>la <strong>médiane</strong> issue du sommet principal, car elle coupe la base en son milieu ;</li><li>la <strong>bissectrice</strong> de l’angle au sommet, car elle partage cet angle en deux angles égaux ;</li><li>la <strong>médiatrice</strong> de la base, car elle est perpendiculaire à la base et passe par son milieu ;</li><li>l’<strong>axe de symétrie</strong> du triangle.</li></ul><div class=\"callout callout--key\"><span class=\"callout__title\">L’essentiel à retenir</span><p>Si la base mesure b, la hauteur issue du sommet la coupe en deux segments de longueur b/2. C’est cette propriété qui permet le calcul avec Pythagore.</p></div><h2 id=\"la-formule-principale-avec-le-theoreme-de-pythagore\">La formule principale avec le théorème de Pythagore</h2><p>Notons :</p><ul><li><strong>a</strong> : la longueur de chacun des deux côtés égaux ;</li><li><strong>b</strong> : la longueur de la base ;</li><li><strong>h</strong> : la hauteur relative à la base.</li></ul><p>Lorsque l’on trace la hauteur, le triangle isocèle est divisé en deux triangles rectangles identiques. Dans chacun d’eux :</p><ul><li>l’hypoténuse est un côté égal, de longueur <strong>a</strong> ;</li><li>un premier côté de l’angle droit mesure <strong>b/2</strong> ;</li><li>l’autre côté de l’angle droit est la hauteur <strong>h</strong>.</li></ul><p>Le théorème de Pythagore donne donc :</p><p><strong>a² = h² + (b/2)²</strong></p><p>En isolant la hauteur, on obtient la formule à connaître :</p><p><strong>h = √[a² − (b/2)²]</strong></p><p>Cette formule fonctionne dès lors que vous connaissez la base et la longueur des deux côtés égaux.</p><h3>Exemple de calcul pas à pas</h3><p>Supposons un triangle isocèle dont les deux côtés égaux mesurent 13 cm et dont la base mesure 10 cm.</p><ol><li>La moitié de la base vaut : 10 / 2 = <strong>5 cm</strong>.</li><li>On applique la formule : h = √(13² − 5²).</li><li>On calcule les carrés : 13² = 169 et 5² = 25.</li><li>On soustrait : 169 − 25 = 144.</li><li>La racine carrée de 144 est 12.</li></ol><p>La hauteur est donc égale à <strong>12 cm</strong>.</p><p>Avec des longueurs moins « parfaites », le résultat peut être décimal. Par exemple, si a = 8 cm et b = 12 cm :</p><p><strong>h = √[8² − (12/2)²] = √(64 − 36) = √28 ≈ 5,29 cm.</strong></p><div class=\"callout callout--important\"><span class=\"callout__title\">Attention à la parenthèse</span><p>Il faut calculer la moitié de la base avant de l’élever au carré : (b/2)². Une erreur fréquente consiste à utiliser b² à la place, ce qui revient à travailler avec le mauvais triangle rectangle.</p></div><h2 id=\"les-autres-formules-selon-les-informations-connues\">Les autres formules selon les informations connues</h2><p>La formule de Pythagore est la plus directe, mais elle n’est pas la seule. Selon les données disponibles dans l’énoncé, le calcul de la hauteur peut passer par l’aire, le périmètre ou un angle. Le tableau suivant vous aide à choisir la bonne méthode.</p><div class=\"table-wrap\"><table><thead><tr><th>Données connues</th><th>Formule de la hauteur</th><th>À utiliser quand…</th></tr></thead><tbody><tr><td>Côtés égaux a et base b</td><td><strong>h = √[a² − (b/2)²]</strong></td><td>Vous connaissez les trois longueurs du triangle isocèle.</td></tr><tr><td>Aire A et base b</td><td><strong>h = 2A / b</strong></td><td>L’aire est donnée ou a déjà été calculée.</td></tr><tr><td>Côté égal a et angle à la base β</td><td><strong>h = a × sin(β)</strong></td><td>Vous disposez d’un angle à la base.</td></tr><tr><td>Côté égal a et angle au sommet α</td><td><strong>h = a × cos(α/2)</strong></td><td>Vous connaissez l’angle formé par les deux côtés égaux.</td></tr><tr><td>Périmètre P et côté égal a</td><td><strong>h = √[a² − ((P − 2a)/2)²]</strong></td><td>La base n’est pas indiquée, mais le périmètre l’est.</td></tr></tbody></table></div><h3>Calculer la hauteur à partir de l’aire</h3><p>L’aire de tout triangle se calcule ainsi :</p><p><strong>A = (b × h) / 2</strong></p><p>En réorganisant cette formule, vous obtenez :</p><p><strong>h = (2 × A) / b</strong></p><p>Par exemple, pour une aire de 30 cm² et une base de 12 cm :</p><p><strong>h = (2 × 30) / 12 = 5 cm.</strong></p><p>Cette méthode est très utile en géométrie plane, mais aussi dans les problèmes de mesure de surface. Vérifiez simplement que l’aire est exprimée dans une unité cohérente avec celle de la base : si la base est en centimètres, la hauteur obtenue sera en centimètres lorsque l’aire est en cm².</p><h3>Calculer la hauteur avec un angle</h3><p>Après avoir coupé le triangle en deux par la hauteur, on obtient deux triangles rectangles. Dans l’un d’eux, le côté égal a est l’hypoténuse. Si β est l’un des angles à la base, alors la hauteur est le côté opposé à β :</p><p><strong>sin(β) = h / a</strong>, donc <strong>h = a × sin(β)</strong>.</p><p>Exemple : si les côtés égaux mesurent 10 cm et qu’un angle à la base mesure 40°, la hauteur est :</p><p><strong>h = 10 × sin(40°) ≈ 6,43 cm.</strong></p><p>Si vous connaissez plutôt l’angle au sommet α, souvenez-vous que la hauteur le partage en deux. L’angle utilisé dans le triangle rectangle vaut donc α/2, et la formule est <strong>h = a × cos(α/2)</strong>.</p><h2 id=\"quelle-methode-choisir\">Quelle méthode choisir ?</h2><p>La meilleure méthode n’est pas forcément la plus longue : elle dépend uniquement des mesures disponibles. Évitez de calculer des valeurs intermédiaires inutilement, car chaque arrondi peut légèrement dégrader la précision du résultat final.</p><div class=\"compare\"><div class=\"compare__col compare__col--a\"><h3>Pythagore : la méthode de référence</h3><ul><li>À privilégier si la base et les côtés égaux sont connus.</li><li>Ne demande pas de calcul d’angle ni d’aire.</li><li>Donne un résultat exact sous forme de racine carrée si nécessaire.</li><li>Repose directement sur la symétrie du triangle isocèle.</li></ul></div><div class=\"compare__col compare__col--b\"><h3>Aire ou trigonométrie : les méthodes adaptées</h3><ul><li>L’aire est idéale quand A et b sont déjà donnés.</li><li>La trigonométrie est pertinente lorsqu’un angle est fourni.</li><li>Ces formules évitent de chercher des longueurs absentes de l’énoncé.</li><li>Elles nécessitent une calculatrice réglée dans la bonne unité angulaire, généralement les degrés.</li></ul></div></div><p>Dans un exercice où seuls le périmètre P et la longueur a des côtés égaux sont donnés, commencez par retrouver la base :</p><p><strong>b = P − 2a.</strong></p><p>Vous pouvez ensuite appliquer Pythagore. Par exemple, si le périmètre est de 32 cm et les côtés égaux de 10 cm, la base mesure 32 − 20 = 12 cm. La hauteur vaut alors √[10² − 6²] = √64 = <strong>8 cm</strong>.</p><h2 id=\"cas-particulier-la-hauteur-d-un-triangle-equilateral\">Cas particulier : la hauteur d’un triangle équilatéral</h2><p>Un triangle équilatéral est un cas particulier de triangle isocèle : ses trois côtés ont la même longueur. Si chaque côté mesure c, la base vaut également c. La formule générale devient :</p><p><strong>h = √[c² − (c/2)²]</strong></p><p>Après simplification :</p><p><strong>h = (c × √3) / 2</strong></p><p>Par exemple, un triangle équilatéral de côté 6 cm a une hauteur de :</p><p><strong>h = (6 × √3) / 2 = 3√3 ≈ 5,20 cm.</strong></p><p>Cette formule est très fréquente dans les exercices. Elle ne s’applique toutefois <strong>que</strong> si les trois côtés ont exactement la même longueur. Pour un triangle simplement isocèle, utilisez la formule avec a et b.</p><h2 id=\"verifier-que-les-mesures-decrivent-bien-un-triangle-isocele\">Vérifier que les mesures décrivent bien un triangle isocèle</h2><p>Avant d’utiliser une formule, assurez-vous que les dimensions sont possibles. Si les côtés égaux mesurent a et la base b, il faut respecter l’inégalité triangulaire :</p><p><strong>0 &lt; b &lt; 2a.</strong></p><p>Autrement dit, la base doit être strictement plus petite que l’addition des deux côtés égaux. Si b est égale à 2a, le triangle est « aplati » : sa hauteur est nulle et il ne s’agit plus d’un véritable triangle. Si b est supérieure à 2a, les deux côtés ne peuvent pas se rejoindre.</p><p>Cette vérification apparaît aussi dans la formule de Pythagore. La quantité placée sous la racine, a² − (b/2)², doit être positive. Si vous obtenez un nombre négatif sous la racine, ce n’est pas un problème de calculatrice : les longueurs annoncées sont incompatibles.</p><div class=\"callout callout--tip\"><span class=\"callout__title\">Bon à savoir</span><p>Une hauteur est toujours perpendiculaire à la base choisie. Sur un schéma non à l’échelle, ne vous fiez pas à l’impression visuelle : repérez le petit carré qui indique l’angle droit, ou construisez mentalement la perpendiculaire depuis le sommet.</p></div><h2 id=\"les-erreurs-les-plus-frequentes-a-eviter\">Les erreurs les plus fréquentes à éviter</h2><p>Le calcul de la hauteur est simple une fois le bon triangle rectangle identifié. Les erreurs viennent surtout d’une confusion entre les rôles des côtés ou d’un manque de rigueur dans les unités.</p><div class=\"pros-cons\"><div class=\"pros\"><h4>Les bons réflexes</h4><ul><li>Nommer clairement les données : a pour les côtés égaux, b pour la base et h pour la hauteur.</li><li>Diviser la base par deux avant d’appliquer Pythagore.</li><li>Garder les valeurs exactes le plus longtemps possible.</li><li>Vérifier que le résultat est positif et exprimé dans la bonne unité.</li><li>Faire un croquis, même très simple, avant de calculer.</li></ul></div><div class=\"cons\"><h4>Les pièges courants</h4><ul><li>Utiliser toute la base dans le triangle rectangle au lieu de b/2.</li><li>Confondre la hauteur avec l’un des côtés égaux.</li><li>Employer la formule de l’équilatéral pour un isocèle non équilatéral.</li><li>Mélanger des cm, des m ou des unités d’aire sans conversion.</li><li>Arrondir trop tôt, surtout avant une élévation au carré ou une racine.</li></ul></div></div><p>Enfin, si un résultat est inattendu, comparez-le aux dimensions connues. La hauteur est nécessairement inférieure au côté égal a, puisqu’elle est l’un des côtés de l’un des triangles rectangles obtenus. Dans l’exemple où a = 13 cm, une hauteur de 15 cm révélerait immédiatement une erreur.</p><h2 id=\"la-methode-rapide-a-retenir\">La méthode rapide à retenir</h2><p>Lorsque les longueurs des côtés sont connues, vous pouvez retenir cette procédure en quatre étapes :</p><ol><li><strong>Identifiez la base</strong> : c’est le côté qui n’appartient pas à la paire de côtés égaux.</li><li><strong>Coupez mentalement la base en deux</strong> grâce à la hauteur, soit b/2.</li><li><strong>Appliquez Pythagore</strong> dans l’un des deux triangles rectangles : h² = a² − (b/2)².</li><li><strong>Prenez la racine carrée</strong> et indiquez l’unité : h = √[a² − (b/2)²].</li></ol><p>La hauteur d’un triangle isocèle est donc facile à trouver dès que l’on exploite sa symétrie. La clé est de ne jamais oublier que la hauteur issue du sommet principal est aussi une médiane : elle partage la base en deux moitiés parfaitement égales.</p>",
+  "faq": [
+    {
+      "q": "Quelle est la formule de la hauteur d’un triangle isocèle ?",
+      "a": "Si les deux côtés égaux mesurent a et la base mesure b, la hauteur relative à la base est h = √[a² − (b/2)²]. Cette formule provient du théorème de Pythagore appliqué à l’un des deux triangles rectangles formés par la hauteur."
+    },
+    {
+      "q": "Pourquoi la hauteur coupe-t-elle la base en deux dans un triangle isocèle ?",
+      "a": "Le triangle isocèle possède un axe de symétrie qui passe par le sommet principal et le milieu de la base. La hauteur tracée depuis ce sommet correspond à cet axe : elle est donc aussi une médiane et partage forcément la base en deux parties égales."
+    },
+    {
+      "q": "Comment calculer la hauteur avec l’aire et la base ?",
+      "a": "Utilisez la formule générale de l’aire d’un triangle : A = (b × h) / 2. En isolant h, on obtient h = 2A / b. L’aire doit être dans une unité carrée cohérente avec l’unité de la base."
+    },
+    {
+      "q": "La hauteur d’un triangle isocèle peut-elle être plus grande que ses côtés égaux ?",
+      "a": "Non. Dans le triangle rectangle créé par la hauteur, le côté égal est l’hypoténuse, c’est-à-dire le plus grand côté. La hauteur est donc toujours strictement inférieure à la longueur d’un côté égal pour un triangle non aplati."
+    },
+    {
+      "q": "Comment trouver la hauteur si l’on connaît le périmètre du triangle isocèle ?",
+      "a": "Si le périmètre vaut P et chaque côté égal vaut a, calculez d’abord la base : b = P − 2a. Appliquez ensuite la formule h = √[a² − (b/2)²], après avoir vérifié que la base est positive et inférieure à 2a."
+    },
+    {
+      "q": "Quelle est la hauteur d’un triangle équilatéral ?",
+      "a": "Un triangle équilatéral est un triangle isocèle dont les trois côtés ont la même longueur. Si le côté mesure c, sa hauteur vaut h = c√3 / 2. Cette formule est un cas particulier de la formule du triangle isocèle."
+    }
+  ],
+  "generatedBy": "gpt-5.6-terra",
+  "generatedAt": "2026-07-11T22:09:14.045Z",
+  "metaTitle": "Quelle est la hauteur d’un triangle isocèle ?",
+  "heroSource": "wordpress"
+}
