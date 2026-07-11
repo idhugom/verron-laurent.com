@@ -1,0 +1,24 @@
+{
+  "name": "verron-laurent",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Verron-laurent.com — conseils pratiques, guides et comparatifs.",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "fetch:posts": "node scripts/fetch-posts.mjs",
+    "gen:content": "node scripts/generate-content.mjs",
+    "gen:images": "node scripts/generate-images.mjs"
+  },
+  "dependencies": {
+    "@astrojs/rss": "^4.0.12",
+    "@astrojs/sitemap": "^3.7.0",
+    "@fontsource-variable/fredoka": "^5.2.5",
+    "@fontsource-variable/plus-jakarta-sans": "^5.2.5",
+    "astro": "^5.16.0",
+    "sharp": "^0.34.4"
+  }
+}

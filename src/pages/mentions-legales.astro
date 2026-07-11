@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Mentions légales"
+  description="Mentions légales du site Verron-laurent.com."
+  noindex={true}
+>
+  <section class="section legal">
+    <div class="container container-narrow">
+      <p class="eyebrow">📄 Informations légales</p>
+      <h1>Mentions légales</h1>
+
+      <div class="prose">
+        <h2>Éditeur du site</h2>
+        <p>
+          Le site <strong>Verron-laurent.com</strong> est édité à titre de site de conseils et
+          d'information. Pour toute question relative au site, un contact peut être établi via
+          l'adresse e-mail de l'éditeur.
+        </p>
+        <div class="callout callout--note">
+          <span class="callout__title">À compléter</span>
+          <p>
+            Raison sociale, adresse, numéro SIREN/SIRET, numéro de TVA le cas échéant, directeur de
+            la publication et adresse e-mail de contact sont à renseigner ici selon votre situation.
+          </p>
+        </div>
+
+        <h2>Hébergement</h2>
+        <p>
+          Le site est hébergé par <strong>Cloudflare, Inc.</strong>, 101 Townsend Street, San
+          Francisco, CA 94107, États-Unis — <a href="https://www.cloudflare.com" rel="nofollow">cloudflare.com</a>.
+        </p>
+
+        <h2>Propriété intellectuelle</h2>
+        <p>
+          L'ensemble des contenus présents sur ce site (textes, visuels, logo, mise en page) est
+          protégé par le droit de la propriété intellectuelle. Toute reproduction ou représentation,
+          totale ou partielle, sans autorisation préalable est interdite.
+        </p>
+
+        <h2>Données personnelles</h2>
+        <p>
+          Ce site a vocation à minimiser la collecte de données personnelles. Conformément au
+          Règlement Général sur la Protection des Données (RGPD) et à la loi « Informatique et
+          Libertés », vous disposez d'un droit d'accès, de rectification et de suppression des
+          données vous concernant.
+        </p>
+
+        <h2>Cookies</h2>
+        <p>
+          Le site s'efforce de limiter l'usage de cookies au strict nécessaire au bon fonctionnement
+          et à la mesure d'audience anonyme. Vous pouvez configurer votre navigateur pour refuser
+          les cookies.
+        </p>
+
+        <h2>Responsabilité</h2>
+        <p>
+          Les informations diffusées sur Verron-laurent.com sont fournies à titre indicatif et ne
+          sauraient se substituer à un conseil professionnel personnalisé. L'éditeur ne peut être
+          tenu responsable des décisions prises sur la base de ces contenus.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal h1 {
+    margin: 0.6rem 0 1.5rem;
+  }
+</style>

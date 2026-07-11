@@ -1,0 +1,144 @@
+---
+const year = new Date().getFullYear();
+const cols = [
+  {
+    title: 'Naviguer',
+    links: [
+      { href: '/', label: 'Accueil' },
+      { href: '/articles', label: 'Tous les conseils' },
+      { href: '/themes', label: 'Thématiques' },
+      { href: '/a-propos', label: 'À propos' },
+    ],
+  },
+  {
+    title: 'Ressources',
+    links: [
+      { href: '/rss.xml', label: 'Flux RSS' },
+      { href: '/sitemap-index.xml', label: 'Plan du site' },
+      { href: '/mentions-legales', label: 'Mentions légales' },
+    ],
+  },
+];
+---
+
+<footer class="site-footer">
+  <div class="footer-wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M0,48 C240,90 480,90 720,54 C960,18 1200,18 1440,54 L1440,90 L0,90 Z" fill="var(--vl-navy)"></path></svg>
+  </div>
+  <div class="site-footer__body">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="/logo.png" alt="Verron-laurent.com" width="210" height="68" class="footer-logo" />
+        <p class="footer-tag">
+          Des conseils clairs, testés et documentés pour faire les bons choix — assurance, auto, moto, mode, voyage et bien plus.
+        </p>
+        <a href="/rss.xml" class="footer-rss">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 11a9 9 0 0 1 9 9h2.5A11.5 11.5 0 0 0 4 8.5V11zm0-6a15 15 0 0 1 15 15h2.5A17.5 17.5 0 0 0 4 2.5V5zm2 11a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg>
+          S'abonner au flux
+        </a>
+      </div>
+
+      {
+        cols.map((col) => (
+          <nav class="footer-col" aria-label={col.title}>
+            <h3 class="footer-col__title">{col.title}</h3>
+            <ul>
+              {col.links.map((l) => (
+                <li><a href={l.href}>{l.label}</a></li>
+              ))}
+            </ul>
+          </nav>
+        ))
+      }
+    </div>
+
+    <div class="container footer-bottom">
+      <p>© {year} Verron-laurent.com — Mes conseils. Tous droits réservés.</p>
+      <p class="footer-made">Fait avec <span aria-hidden="true">💙</span> et beaucoup de café.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    margin-top: clamp(3rem, 6vw, 6rem);
+    position: relative;
+  }
+  .footer-wave svg {
+    display: block;
+    width: 100%;
+    height: clamp(50px, 7vw, 90px);
+  }
+  .site-footer__body {
+    background: var(--vl-navy);
+    color: #cdd7f5;
+    padding-bottom: 2rem;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr;
+    gap: 2.5rem;
+    padding-top: 1rem;
+  }
+  .footer-logo {
+    height: 52px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    opacity: 0.96;
+  }
+  .footer-tag {
+    margin-top: 1rem;
+    max-width: 42ch;
+    color: #aebbe4;
+    line-height: 1.6;
+  }
+  .footer-rss {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    margin-top: 1.2rem;
+    font-weight: 600;
+    color: var(--vl-peach);
+  }
+  .footer-rss:hover {
+    color: #ffd0a8;
+  }
+  .footer-col__title {
+    font-size: 1.05rem;
+    color: #fff;
+    margin-bottom: 0.9rem;
+  }
+  .footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+  .footer-col a {
+    color: #aebbe4;
+    font-weight: 500;
+  }
+  .footer-col a:hover {
+    color: #fff;
+    padding-left: 4px;
+  }
+  .footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.6rem;
+    margin-top: 2.5rem;
+    padding-top: 1.4rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    font-size: 0.9rem;
+    color: #8b9acc;
+  }
+  @media (max-width: 720px) {
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    .footer-brand {
+      grid-column: 1 / -1;
+    }
+  }
+</style>

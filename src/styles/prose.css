@@ -1,0 +1,339 @@
+/* =========================================================================
+   PROSE — styles du corps d'article (contenu riche généré)
+   Contrat de classes utilisé par le contenu : callouts, tableaux,
+   comparaisons 2 colonnes, pros/cons, encadrés statistiques.
+   ========================================================================= */
+
+.prose {
+  font-size: 1.09rem;
+  line-height: 1.78;
+  color: var(--vl-ink-soft);
+}
+
+.prose > * + * {
+  margin-top: 1.15em;
+}
+
+.prose h2 {
+  margin-top: 2.4em;
+  font-size: clamp(1.55rem, 1.2rem + 1.4vw, 2.1rem);
+  scroll-margin-top: calc(var(--header-h) + 20px);
+  position: relative;
+  padding-left: 0.9rem;
+}
+.prose h2::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.12em;
+  bottom: 0.12em;
+  width: 6px;
+  border-radius: 6px;
+  background: var(--grad-primary);
+}
+.prose h3 {
+  margin-top: 1.9em;
+  color: var(--vl-navy);
+  scroll-margin-top: calc(var(--header-h) + 20px);
+}
+.prose h4 {
+  margin-top: 1.5em;
+  font-size: 1.12rem;
+  color: var(--vl-blue-700);
+}
+
+.prose p,
+.prose li {
+  color: var(--vl-ink-soft);
+}
+.prose strong {
+  color: var(--vl-navy);
+  font-weight: 700;
+}
+
+.prose a {
+  font-weight: 600;
+  background: linear-gradient(var(--vl-blue), var(--vl-blue)) no-repeat left bottom / 0% 2px;
+  transition: background-size 0.3s var(--ease-out), color 0.2s;
+}
+.prose a:hover {
+  background-size: 100% 2px;
+}
+
+.prose ul,
+.prose ol {
+  padding-left: 1.4em;
+}
+.prose li {
+  margin-top: 0.5em;
+  padding-left: 0.25em;
+}
+.prose ul > li::marker {
+  color: var(--vl-blue);
+}
+.prose ol > li::marker {
+  color: var(--vl-peach-600);
+  font-weight: 700;
+}
+
+.prose blockquote {
+  margin-block: 1.8em;
+  padding: 1.2em 1.5em;
+  border-radius: var(--radius);
+  background: var(--vl-sky-050);
+  border-left: 5px solid var(--vl-sky);
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--vl-navy);
+}
+
+.prose code {
+  font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  font-size: 0.9em;
+  background: var(--vl-blue-050);
+  color: var(--vl-blue-700);
+  padding: 0.15em 0.45em;
+  border-radius: 6px;
+}
+
+.prose figure {
+  margin-block: 2em;
+}
+.prose figure img {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  width: 100%;
+}
+.prose figcaption {
+  margin-top: 0.7em;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--vl-ink-muted);
+}
+
+/* ------------------------------------------------------------- Callouts */
+.callout {
+  --c: var(--vl-blue);
+  --c-bg: var(--vl-blue-050);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.6em 1em;
+  margin-block: 1.9em;
+  padding: 1.25em 1.4em;
+  border-radius: var(--radius);
+  background: var(--c-bg);
+  border: 1px solid color-mix(in srgb, var(--c) 22%, transparent);
+  box-shadow: var(--shadow-sm);
+}
+.callout::before {
+  content: 'ℹ️';
+  font-size: 1.5rem;
+  line-height: 1;
+  grid-row: 1 / span 2;
+}
+.callout > * {
+  grid-column: 2;
+}
+.callout > :first-child {
+  margin-top: 0;
+}
+.callout strong:first-child,
+.callout .callout__title {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--c);
+  margin-bottom: 0.1em;
+}
+.callout--tip {
+  --c: #0a8a55;
+  --c-bg: #e9f9f1;
+}
+.callout--tip::before {
+  content: '💡';
+}
+.callout--important {
+  --c: var(--vl-peach-600);
+  --c-bg: var(--vl-peach-050);
+}
+.callout--important::before {
+  content: '⚠️';
+}
+.callout--note {
+  --c: var(--vl-navy);
+  --c-bg: var(--vl-bg-deep);
+}
+.callout--note::before {
+  content: '📌';
+}
+.callout--key {
+  --c: var(--vl-blue-700);
+  --c-bg: var(--vl-sky-050);
+}
+.callout--key::before {
+  content: '🎯';
+}
+
+/* Note: --tip introduit un vert d'accent ; conservé volontairement discret
+   et uniquement pour la sémantique "réussite". Le reste du site est 100% logo. */
+
+/* ---------------------------------------------------------------- Tables */
+.prose .table-wrap {
+  margin-block: 1.9em;
+  overflow-x: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--vl-line);
+  box-shadow: var(--shadow-sm);
+  -webkit-overflow-scrolling: touch;
+}
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.98rem;
+  min-width: 480px;
+}
+.prose thead {
+  background: var(--grad-primary);
+}
+.prose thead th {
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 600;
+  text-align: left;
+  padding: 0.9em 1.1em;
+  white-space: nowrap;
+}
+.prose tbody td {
+  padding: 0.85em 1.1em;
+  border-top: 1px solid var(--vl-line);
+  vertical-align: top;
+}
+.prose tbody tr:nth-child(even) {
+  background: var(--vl-sky-050);
+}
+.prose tbody tr:hover {
+  background: var(--vl-blue-050);
+}
+.prose table th[scope='row'] {
+  font-weight: 700;
+  color: var(--vl-navy);
+}
+
+/* --------------------------------------------- Comparaison en 2 colonnes */
+.compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.1rem;
+  margin-block: 2em;
+}
+.compare__col {
+  padding: 1.4em;
+  border-radius: var(--radius-lg);
+  background: var(--vl-surface);
+  border: 1px solid var(--vl-line);
+  box-shadow: var(--shadow-sm);
+}
+.compare__col h3,
+.compare__col h4 {
+  margin-top: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.compare__col--a {
+  border-top: 5px solid var(--vl-blue);
+}
+.compare__col--b {
+  border-top: 5px solid var(--vl-peach);
+}
+.compare__col ul {
+  padding-left: 1.2em;
+}
+@media (max-width: 620px) {
+  .compare {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ----------------------------------------------------------- Pros / cons */
+.pros-cons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.1rem;
+  margin-block: 2em;
+}
+.pros-cons > div {
+  padding: 1.3em 1.4em;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+.pros-cons .pros {
+  background: #e9f9f1;
+  border: 1px solid #b7e6cf;
+}
+.pros-cons .cons {
+  background: var(--vl-peach-050);
+  border: 1px solid var(--vl-peach-100);
+}
+.pros-cons h4 {
+  margin-top: 0;
+}
+.pros-cons ul {
+  list-style: none;
+  padding-left: 0;
+}
+.pros-cons .pros li::before {
+  content: '✓';
+  color: #0a8a55;
+  font-weight: 800;
+  margin-right: 0.6em;
+}
+.pros-cons .cons li::before {
+  content: '✕';
+  color: var(--vl-peach-600);
+  font-weight: 800;
+  margin-right: 0.6em;
+}
+@media (max-width: 620px) {
+  .pros-cons {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ------------------------------------------------- Encadrés statistiques */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-block: 2em;
+}
+.stat {
+  padding: 1.3em;
+  border-radius: var(--radius-lg);
+  background: var(--grad-hero);
+  border: 1px solid var(--vl-blue-100);
+  text-align: center;
+}
+.stat__num {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 2.2rem;
+  line-height: 1;
+  background: var(--grad-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.stat__label {
+  display: block;
+  margin-top: 0.4em;
+  font-size: 0.9rem;
+  color: var(--vl-ink-muted);
+}
+
+/* First paragraph lead-in */
+.prose > p:first-of-type {
+  font-size: 1.18rem;
+  color: var(--vl-navy);
+}

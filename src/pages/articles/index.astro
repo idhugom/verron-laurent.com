@@ -1,0 +1,212 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+
+const posts = (await getCollection('posts')).sort((a, b) =>
+  b.data.date > a.data.date ? 1 : -1
+);
+const topicCount = new Map();
+for (const p of posts) for (const t of p.data.topics) topicCount.set(t, (topicCount.get(t) || 0) + 1);
+const topics = [...topicCount.entries()].sort((a, b) => b[1] - a[1]);
+---
+
+<BaseLayout
+  title="Tous les conseils"
+  description="Parcourez tous les guides pratiques de Verron-laurent.com : assurance, auto, moto, mode, maison, voyage et bien plus."
+>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow" data-reveal>📚 La bibliothèque</p>
+      <h1 data-reveal style="--reveal-delay:.05s">Tous les conseils</h1>
+      <p class="page-hero__lead" data-reveal style="--reveal-delay:.1s">
+        {posts.length} guides pratiques pour vous aider à décider. Cherchez, filtrez, trouvez.
+      </p>
+
+      <div class="search-bar" data-reveal style="--reveal-delay:.15s">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7" /><path d="M21 21l-4.3-4.3" /></svg>
+        <input
+          type="search"
+          id="post-search"
+          placeholder="Rechercher un conseil (assurance, moto, voyage…)"
+          autocomplete="off"
+          aria-label="Rechercher un conseil"
+        />
+      </div>
+
+      <div class="filter-row" data-reveal style="--reveal-delay:.2s">
+        <button class="filter-chip is-active" data-filter="*">Tous</button>
+        {topics.slice(0, 12).map(([t]) => <button class="filter-chip" data-filter={t}>{t}</button>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section articles-list">
+    <div class="container">
+      <p class="results-count" data-results>{posts.length} conseils</p>
+      <div class="articles-grid" data-grid>
+        {
+          posts.map((p, i) => (
+            <div
+              class="article-item"
+              data-title={p.data.title.toLowerCase()}
+              data-topics={p.data.topics.join('|').toLowerCase()}
+              data-excerpt={p.data.excerpt.toLowerCase()}
+            >
+              <PostCard
+                slug={p.data.slug}
+                title={p.data.title}
+                excerpt={p.data.excerpt}
+                heroImage={p.data.heroImage}
+                heroAlt={p.data.heroAlt}
+                topics={p.data.topics}
+                readingMinutes={p.data.readingMinutes}
+                index={Math.min(i, 8)}
+              />
+            </div>
+          ))
+        }
+      </div>
+      <p class="no-results" data-no-results hidden>
+        Aucun conseil ne correspond à votre recherche. Essayez d'autres mots-clés.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-hero {
+    padding-top: clamp(2rem, 4vw, 3.5rem);
+    padding-bottom: clamp(1.5rem, 3vw, 2.5rem);
+    text-align: center;
+  }
+  .page-hero h1 {
+    font-size: clamp(2.4rem, 1.6rem + 3vw, 3.6rem);
+    margin: 0.8rem 0 0.8rem;
+  }
+  .page-hero__lead {
+    color: var(--vl-ink-soft);
+    font-size: 1.1rem;
+    max-width: 46ch;
+    margin-inline: auto;
+  }
+  .search-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    max-width: 560px;
+    margin: 2rem auto 1.4rem;
+    padding: 0.3rem 0.4rem 0.3rem 1.1rem;
+    background: var(--vl-surface);
+    border: 2px solid var(--vl-line);
+    border-radius: var(--radius-pill);
+    box-shadow: var(--shadow-sm);
+    color: var(--vl-ink-muted);
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .search-bar:focus-within {
+    border-color: var(--vl-blue);
+    box-shadow: var(--shadow-glow);
+  }
+  .search-bar input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font: inherit;
+    color: var(--vl-navy);
+    padding: 0.6rem 0.4rem;
+  }
+  .filter-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  .filter-chip {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--vl-ink-soft);
+    background: var(--vl-surface);
+    border: 1px solid var(--vl-line);
+    padding: 0.45em 1em;
+    border-radius: var(--radius-pill);
+    text-transform: capitalize;
+    transition: all 0.2s var(--ease-spring);
+  }
+  .filter-chip:hover {
+    border-color: var(--vl-sky);
+    color: var(--vl-blue-700);
+  }
+  .filter-chip.is-active {
+    background: var(--vl-blue);
+    border-color: var(--vl-blue);
+    color: #fff;
+  }
+
+  .results-count {
+    font-weight: 600;
+    color: var(--vl-ink-muted);
+    margin-bottom: 1.4rem;
+  }
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 1.6rem;
+  }
+  .article-item.is-hidden {
+    display: none;
+  }
+  .no-results {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--vl-ink-muted);
+    padding: 3rem 0;
+  }
+</style>
+
+<script>
+  const setupFilter = () => {
+    const search = document.getElementById('post-search');
+    const items = [...document.querySelectorAll('.article-item')];
+    const chips = [...document.querySelectorAll('.filter-chip')];
+    const count = document.querySelector('[data-results]');
+    const noResults = document.querySelector('[data-no-results]');
+    if (!items.length) return;
+
+    let activeTopic = '*';
+    let query = '';
+
+    const apply = () => {
+      let visible = 0;
+      items.forEach((el) => {
+        const title = el.getAttribute('data-title') || '';
+        const topics = el.getAttribute('data-topics') || '';
+        const excerpt = el.getAttribute('data-excerpt') || '';
+        const matchTopic = activeTopic === '*' || topics.includes(activeTopic.toLowerCase());
+        const matchQuery =
+          !query || title.includes(query) || topics.includes(query) || excerpt.includes(query);
+        const show = matchTopic && matchQuery;
+        el.classList.toggle('is-hidden', !show);
+        if (show) visible++;
+      });
+      if (count) count.textContent = `${visible} conseil${visible > 1 ? 's' : ''}`;
+      if (noResults) noResults.hidden = visible > 0;
+    };
+
+    search?.addEventListener('input', (e) => {
+      query = e.target.value.trim().toLowerCase();
+      apply();
+    });
+    chips.forEach((chip) =>
+      chip.addEventListener('click', () => {
+        chips.forEach((c) => c.classList.remove('is-active'));
+        chip.classList.add('is-active');
+        activeTopic = chip.getAttribute('data-filter') || '*';
+        apply();
+      })
+    );
+  };
+  document.addEventListener('astro:page-load', setupFilter);
+</script>

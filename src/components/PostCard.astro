@@ -1,0 +1,195 @@
+---
+export interface Props {
+  slug: string;
+  title: string;
+  excerpt: string;
+  heroImage: string;
+  heroAlt?: string;
+  topics?: string[];
+  readingMinutes?: number;
+  featured?: boolean;
+  index?: number;
+}
+const {
+  slug,
+  title,
+  excerpt,
+  heroImage,
+  heroAlt = '',
+  topics = [],
+  readingMinutes = 6,
+  featured = false,
+  index = 0,
+} = Astro.props;
+const delay = Math.min(index * 0.06, 0.4);
+---
+
+<article
+  class:list={['card', { 'card--featured': featured }]}
+  data-reveal
+  style={`--reveal-delay:${delay}s`}
+>
+  <a href={`/${slug}`} class="card__media" aria-hidden="true" tabindex="-1">
+    <img src={heroImage} alt={heroAlt} loading="lazy" decoding="async" width="600" height="400" />
+    {topics[0] && <span class="card__badge">{topics[0]}</span>}
+  </a>
+  <div class="card__body">
+    <div class="card__meta">
+      <span class="card__time">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></svg>
+        {readingMinutes} min
+      </span>
+    </div>
+    <h3 class="card__title">
+      <a href={`/${slug}`}>{title}</a>
+    </h3>
+    <p class="card__excerpt">{excerpt}</p>
+    <span class="card__more">
+      Lire le guide
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+    </span>
+  </div>
+</article>
+
+<style>
+  .card {
+    display: flex;
+    flex-direction: column;
+    background: var(--vl-surface);
+    border: 1px solid var(--vl-line);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.35s var(--ease-spring), box-shadow 0.35s ease, border-color 0.3s;
+    height: 100%;
+  }
+  .card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--vl-sky);
+  }
+  .card__media {
+    position: relative;
+    display: block;
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    background: var(--vl-bg-deep);
+  }
+  .card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s var(--ease-out);
+  }
+  .card:hover .card__media img {
+    transform: scale(1.07);
+  }
+  .card__badge {
+    position: absolute;
+    top: 0.8rem;
+    left: 0.8rem;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.74rem;
+    letter-spacing: 0.02em;
+    text-transform: capitalize;
+    color: #fff;
+    background: color-mix(in srgb, var(--vl-navy) 78%, transparent);
+    backdrop-filter: blur(6px);
+    padding: 0.35em 0.85em;
+    border-radius: var(--radius-pill);
+  }
+  .card__body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 1.3rem 1.4rem 1.5rem;
+  }
+  .card__meta {
+    display: flex;
+    gap: 0.8rem;
+    margin-bottom: 0.6rem;
+  }
+  .card__time {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--vl-ink-muted);
+  }
+  .card__title {
+    font-size: 1.24rem;
+    line-height: 1.25;
+    margin-bottom: 0.55rem;
+  }
+  .card__title a {
+    color: var(--vl-navy);
+    background-image: linear-gradient(var(--vl-blue), var(--vl-blue));
+    background-size: 0% 2px;
+    background-repeat: no-repeat;
+    background-position: left 100%;
+    transition: background-size 0.3s var(--ease-out), color 0.2s;
+  }
+  .card:hover .card__title a {
+    color: var(--vl-blue-700);
+  }
+  .card__excerpt {
+    font-size: 0.97rem;
+    color: var(--vl-ink-muted);
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+  .card__more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45em;
+    margin-top: auto;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--vl-blue);
+  }
+  .card__more svg {
+    transition: transform 0.3s var(--ease-spring);
+  }
+  .card:hover .card__more svg {
+    transform: translateX(5px);
+  }
+
+  .card--featured {
+    grid-column: span 2;
+  }
+  @media (min-width: 861px) {
+    .card--featured {
+      flex-direction: row;
+    }
+    .card--featured .card__media {
+      aspect-ratio: auto;
+      width: 52%;
+      flex-shrink: 0;
+    }
+    .card--featured .card__body {
+      justify-content: center;
+      padding: 2rem 2.2rem;
+    }
+    .card--featured .card__title {
+      font-size: 1.7rem;
+    }
+    .card--featured .card__excerpt {
+      -webkit-line-clamp: 4;
+      line-clamp: 4;
+      font-size: 1.05rem;
+    }
+  }
+  @media (max-width: 560px) {
+    .card--featured {
+      grid-column: span 1;
+    }
+  }
+</style>

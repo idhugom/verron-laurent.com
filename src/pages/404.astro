@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Page introuvable — Verron-laurent.com" noindex={true}>
+  <section class="notfound">
+    <span class="blob blob--x" aria-hidden="true"></span>
+    <div class="container">
+      <p class="notfound__code" data-reveal>404</p>
+      <h1 data-reveal style="--reveal-delay:.05s">Oups, cette page a filé&nbsp;!</h1>
+      <p class="notfound__lead" data-reveal style="--reveal-delay:.1s">
+        La page que vous cherchez n'existe pas ou a été déplacée. Pas de panique, il y a plein de
+        bons conseils à explorer.
+      </p>
+      <div class="notfound__actions" data-reveal style="--reveal-delay:.15s">
+        <a href="/" class="btn">Retour à l'accueil</a>
+        <a href="/articles" class="btn btn--ghost">Voir tous les conseils</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .notfound {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    padding: clamp(4rem, 10vw, 8rem) 0;
+  }
+  .notfound__code {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(6rem, 4rem + 14vw, 14rem);
+    line-height: 0.9;
+    background: var(--grad-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: wiggle 5s ease-in-out infinite;
+  }
+  .notfound h1 {
+    margin: 1rem 0;
+  }
+  .notfound__lead {
+    max-width: 46ch;
+    margin: 0 auto 2rem;
+    color: var(--vl-ink-soft);
+    font-size: 1.1rem;
+  }
+  .notfound__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+    justify-content: center;
+  }
+  .blob--x {
+    width: 40vw;
+    height: 40vw;
+    background: var(--vl-sky);
+    filter: blur(70px);
+    opacity: 0.3;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+</style>

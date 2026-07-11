@@ -1,0 +1,164 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const steps = [
+  { n: '01', title: 'On part d\'une vraie question', text: 'Chaque guide naît d\'une interrogation concrète que se posent nos lecteurs.' },
+  { n: '02', title: 'On creuse et on compare', text: 'Critères, options, avantages et pièges : on rassemble ce qui compte vraiment.' },
+  { n: '03', title: 'On rend ça clair et utile', text: 'Un contenu structuré, honnête et actionnable, pour décider en confiance.' },
+];
+---
+
+<BaseLayout
+  title="À propos"
+  description="Verron-laurent.com, ce sont des conseils pratiques, clairs et honnêtes pour vous aider à faire les bons choix au quotidien."
+>
+  <section class="about-hero">
+    <div class="container about-hero__inner">
+      <div class="about-hero__text" data-reveal>
+        <p class="eyebrow">💙 Bienvenue</p>
+        <h1>Des conseils clairs, <span class="gradient-text">sans détour</span>.</h1>
+        <p class="about-hero__lead">
+          Verron-laurent.com, c'est une conviction simple : bien s'informer ne devrait pas être
+          compliqué. Nous transformons des sujets parfois arides — assurance, contrats, équipement,
+          voyage — en guides pratiques que l'on comprend du premier coup.
+        </p>
+      </div>
+      <div class="about-hero__logo" data-reveal style="--reveal-delay:.1s">
+        <img src="/logo.png" alt="Verron-laurent.com" width="320" height="103" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head section-head--center" data-reveal>
+        <p class="eyebrow">🛠️ Notre méthode</p>
+        <h2>Comment on écrit nos conseils</h2>
+      </div>
+      <div class="steps">
+        {
+          steps.map((s, i) => (
+            <div class="step" data-reveal style={`--reveal-delay:${i * 0.08}s`}>
+              <span class="step__n">{s.n}</span>
+              <h3>{s.title}</h3>
+              <p>{s.text}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section about-values">
+    <div class="container">
+      <div class="about-promise" data-reveal>
+        <h2>Notre promesse</h2>
+        <ul>
+          <li><strong>Honnêteté d'abord.</strong> On dit aussi ce qui ne va pas, pas seulement ce qui brille.</li>
+          <li><strong>Du concret.</strong> Des critères, des fourchettes, des étapes — pas de blabla.</li>
+          <li><strong>Pour tout le monde.</strong> Un langage simple, même sur les sujets techniques.</li>
+          <li><strong>Toujours à jour.</strong> On révise nos guides pour qu'ils restent fiables.</li>
+        </ul>
+        <a href="/articles" class="btn">Explorer les conseils</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .about-hero {
+    padding-top: clamp(2rem, 4vw, 4rem);
+    padding-bottom: clamp(1rem, 3vw, 2rem);
+  }
+  .about-hero__inner {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 2.5rem;
+    align-items: center;
+  }
+  .about-hero h1 {
+    font-size: clamp(2.3rem, 1.5rem + 3vw, 3.6rem);
+    margin: 1rem 0 1.2rem;
+  }
+  .about-hero__lead {
+    font-size: 1.15rem;
+    color: var(--vl-ink-soft);
+  }
+  .about-hero__logo {
+    display: grid;
+    place-items: center;
+    padding: 2.5rem;
+    background: var(--grad-hero);
+    border: 1px solid var(--vl-blue-100);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow);
+  }
+  .about-hero__logo img {
+    width: min(320px, 100%);
+    animation: float 6s ease-in-out infinite;
+  }
+  @media (max-width: 800px) {
+    .about-hero__inner {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.6rem;
+  }
+  .step {
+    position: relative;
+    padding: 2rem 1.8rem;
+    background: var(--vl-surface);
+    border: 1px solid var(--vl-line);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+  }
+  .step__n {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 3rem;
+    line-height: 1;
+    background: var(--grad-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    opacity: 0.85;
+  }
+  .step h3 {
+    margin: 0.6rem 0 0.5rem;
+  }
+  .step p {
+    color: var(--vl-ink-muted);
+  }
+
+  .about-values {
+    background: var(--vl-surface);
+  }
+  .about-promise {
+    max-width: 720px;
+    margin-inline: auto;
+    text-align: center;
+  }
+  .about-promise ul {
+    list-style: none;
+    display: grid;
+    gap: 1rem;
+    margin: 1.8rem 0 2rem;
+    text-align: left;
+  }
+  .about-promise li {
+    padding: 1.1rem 1.4rem;
+    background: var(--vl-bg);
+    border-radius: var(--radius);
+    border-left: 4px solid var(--vl-peach);
+    color: var(--vl-ink-soft);
+  }
+  .about-promise strong {
+    color: var(--vl-navy);
+  }
+</style>

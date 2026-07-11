@@ -1,0 +1,25 @@
+# build output
+dist/
+.astro/
+
+# dependencies
+node_modules/
+
+# logs
+npm-debug.log*
+*.log
+
+# environment
+.env
+.env.production
+.dev.vars
+
+# os / editor
+.DS_Store
+.vscode/
+*.local
+
+# scratch / probes
+_probe/
+scripts/lib/_all_posts_seed.json
+.content-progress.json

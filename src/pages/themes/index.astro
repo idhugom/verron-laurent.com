@@ -1,0 +1,146 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const posts = await getCollection('posts');
+const byTopic = new Map();
+for (const p of posts) {
+  for (const t of p.data.topics) {
+    if (!byTopic.has(t)) byTopic.set(t, []);
+    byTopic.get(t).push(p);
+  }
+}
+const groups = [...byTopic.entries()]
+  .map(([topic, list]) => ({
+    topic,
+    id: topic.replace(/\s+/g, '-'),
+    list: list.sort((a, b) => (b.data.date > a.data.date ? 1 : -1)),
+  }))
+  .sort((a, b) => b.list.length - a.list.length);
+---
+
+<BaseLayout
+  title="Thématiques"
+  description="Tous les conseils de Verron-laurent.com classés par thématique : assurance, auto, moto, mode, maison, voyage, loisirs…"
+>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow" data-reveal>🧭 Explorer par thème</p>
+      <h1 data-reveal style="--reveal-delay:.05s">Thématiques</h1>
+      <p class="page-hero__lead" data-reveal style="--reveal-delay:.1s">
+        Choisissez un univers et retrouvez tous les conseils associés.
+      </p>
+      <div class="theme-nav" data-reveal style="--reveal-delay:.15s">
+        {groups.map((g) => <a href={`#${g.id}`} class="chip">{g.topic} <span>{g.list.length}</span></a>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      {
+        groups.map((g) => (
+          <div class="theme-group" id={g.id} data-reveal>
+            <div class="theme-group__head">
+              <h2>{g.topic}</h2>
+              <span class="theme-group__count">{g.list.length} conseil{g.list.length > 1 ? 's' : ''}</span>
+            </div>
+            <ul class="theme-links">
+              {g.list.map((p) => (
+                <li>
+                  <a href={`/${p.data.slug}`}>
+                    <span class="theme-links__title">{p.data.title}</span>
+                    <span class="theme-links__meta">{p.data.readingMinutes} min</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-hero {
+    padding-top: clamp(2rem, 4vw, 3.5rem);
+    text-align: center;
+  }
+  .page-hero h1 {
+    font-size: clamp(2.4rem, 1.6rem + 3vw, 3.6rem);
+    margin: 0.8rem 0;
+  }
+  .page-hero__lead {
+    color: var(--vl-ink-soft);
+    font-size: 1.1rem;
+  }
+  .theme-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.8rem;
+  }
+  .theme-nav .chip {
+    text-transform: capitalize;
+  }
+  .theme-nav .chip span {
+    color: var(--vl-blue);
+    font-weight: 800;
+  }
+
+  .theme-group {
+    margin-bottom: 3rem;
+    scroll-margin-top: calc(var(--header-h) + 20px);
+  }
+  .theme-group__head {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    padding-bottom: 0.8rem;
+    margin-bottom: 1.2rem;
+    border-bottom: 2px solid var(--vl-line);
+  }
+  .theme-group__head h2 {
+    text-transform: capitalize;
+  }
+  .theme-group__count {
+    font-weight: 600;
+    color: var(--vl-ink-muted);
+    font-size: 0.9rem;
+  }
+  .theme-links {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 0.5rem;
+  }
+  .theme-links a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.9rem 1.1rem;
+    background: var(--vl-surface);
+    border: 1px solid var(--vl-line);
+    border-radius: var(--radius);
+    color: var(--vl-navy);
+    font-weight: 500;
+    transition: transform 0.2s var(--ease-spring), border-color 0.2s, box-shadow 0.2s;
+  }
+  .theme-links a:hover {
+    transform: translateX(4px);
+    border-color: var(--vl-sky);
+    box-shadow: var(--shadow-sm);
+  }
+  .theme-links__title {
+    line-height: 1.35;
+  }
+  .theme-links__meta {
+    flex-shrink: 0;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--vl-ink-muted);
+  }
+</style>
