@@ -1,7 +1,6 @@
-# Redirections Cloudflare Pages
-
-# apex (sans www) -> www, en 301
-https://verron-laurent.com/*   https://www.verron-laurent.com/:splat   301!
+# Redirections Cloudflare Pages (basées sur le chemin)
+# La redirection apex (sans www) -> www est gérée par functions/_middleware.js
+# (les règles _redirects de Pages ne matchent pas sur le nom d'hôte).
 
 # Anciens flux WordPress -> RSS
 /feed        /rss.xml   301
