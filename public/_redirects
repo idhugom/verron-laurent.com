@@ -1,7 +1,7 @@
 # Redirections Cloudflare Pages
 
-# www -> apex (sans www), en 301
-https://www.verron-laurent.com/*   https://verron-laurent.com/:splat   301!
+# apex (sans www) -> www, en 301
+https://verron-laurent.com/*   https://www.verron-laurent.com/:splat   301!
 
 # Anciens flux WordPress -> RSS
 /feed        /rss.xml   301

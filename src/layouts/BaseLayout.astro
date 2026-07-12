@@ -28,7 +28,7 @@ const {
   jsonLd,
 } = Astro.props;
 
-const site = Astro.site ?? new URL('https://verron-laurent.com');
+const site = Astro.site ?? new URL('https://www.verron-laurent.com');
 const canonical = new URL(Astro.url.pathname, site).href.replace(/\/$/, '') || site.href;
 const ogImage = new URL(image, site).href;
 const fullTitle = title.includes('Verron') ? title : `${title} · Verron-laurent.com`;

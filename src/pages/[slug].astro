@@ -21,7 +21,7 @@ export async function getStaticPaths() {
 
 const { post, related } = Astro.props;
 const d = post.data;
-const site = Astro.site ?? new URL('https://verron-laurent.com');
+const site = Astro.site ?? new URL('https://www.verron-laurent.com');
 const url = new URL(`/${d.slug}`, site).href;
 const imageAbs = new URL(d.heroImage, site).href;
 

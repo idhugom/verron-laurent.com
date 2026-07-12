@@ -2,11 +2,10 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
-// Site canonique = domaine de production final SANS www (le www redirige vers l'apex).
-// Tant que les DNS ne sont pas basculés, la préprod est servie sur l'URL *.pages.dev,
-// mais les URL canoniques / sitemap pointent vers le domaine définitif.
+// Site canonique = domaine de production final AVEC www (l'apex sans-www redirige vers www).
+// Les URL canoniques / sitemap pointent vers le domaine définitif www.verron-laurent.com.
 export default defineConfig({
-  site: 'https://verron-laurent.com',
+  site: 'https://www.verron-laurent.com',
   trailingSlash: 'ignore',
   build: {
     format: 'directory',

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://verron-laurent.com/sitemap-index.xml
+Sitemap: https://www.verron-laurent.com/sitemap-index.xml
